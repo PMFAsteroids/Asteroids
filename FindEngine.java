@@ -20,7 +20,7 @@ public class FindEngine
 		{
 			for (int j = 0; j <12; j++) 
 			{
-				matrix[i][j]=rand.nextInt(9)+1;
+				matrix[i][j]=rand.nextInt(12)+1;
 			}
 		}
 		
@@ -88,4 +88,5 @@ public class FindEngine
 	}
 	
 }
+
 
