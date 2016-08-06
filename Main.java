@@ -556,6 +556,7 @@ public class Main extends Application {
 		score = new Label();
 		score.setText("Score: " + rezultat);
 		score.setId("tekst");
+		score.setFont(Font.font("Showcard Gothic", FontWeight.BOLD, 25));
 		score.setLayoutX(10);
 		score.setLayoutY(10);
 
@@ -703,7 +704,7 @@ public class Main extends Application {
 					} else {
 						// System.out.println("Crtam broj zivota");
 
-						double x = 10, y = 20;
+						double x = 10, y = 50;
 
 						if(pobeda==true)
 						{
