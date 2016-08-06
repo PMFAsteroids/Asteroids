@@ -47,7 +47,7 @@ public class Star {
 
 	public boolean shotCollision(Shot shot) {
 		
-		if (Math.pow(180, 2) > Math.pow(shot.getX() - x, 2) + Math.pow(shot.getY() - y, 2))
+		if (Math.pow(45, 2) > Math.pow(shot.getX() - x, 2) + Math.pow(shot.getY() - y, 2))
 			return true;
 
 		return false;
