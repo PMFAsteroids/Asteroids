@@ -1,0 +1,137 @@
+#pane {
+	-fx-background-image:url("asteroid.jpg");
+}
+
+#tekst {
+ -fx-text-fill: white;
+}
+
+#btn1
+{
+	/*-fx-border-color: blue ;*/
+	-fx-min-height: 74px;
+	-fx-min-width: 74px;
+	-fx-max-height: 74px;
+	-fx-max-width: 74px;
+}
+
+#next
+{	-fx-background-radius: 10px 10px 10px 10px;
+	-fx-opacity:1;
+	-fx-blend-mode: SCREEN; /* da budu providna slova */
+}
+
+p1 {
+	-fx-background-image:url("asteroid.jpg");
+}
+
+#tekst {
+ -fx-text-fill: lightgray;
+ 
+}
+
+#btn {
+	-fx-background-radius: 10px 10px 10px 10px;
+	-fx-opacity:1;
+	-fx-blend-mode: SCREEN; /* da budu providna slova */
+}
+
+
+#sl {
+	-fx-max-width: 250px;
+	-fx-max-height: 250px;
+}
+
+#game {
+	-fx-background-image:url("svemir.png");
+}
+
+#izgubio {
+		-fx-background-image:url("asteroid.jpg");
+}
+
+
+#lf
+{
+	-fx-text-fill: white; 
+	-fx-padding: 20px;
+	 -fx-font-color:white;
+	-fx-font-family: "Showcard Gothic";
+	-fx-font-weight: bold;
+    -fx-text-fill: white;
+	-fx-font-size: 36px;
+}
+#g
+ {
+   	-fx-background-image:url("galaxy.jpg");
+    -fx-text-fill: black;
+    -fx-font-size: 28px;
+    -fx-margin: 2px;
+    -fx-spaceing:20px;
+}
+
+#p
+ {
+   	-fx-background-image:url("galaxy.jpg");
+ }
+   	
+#l
+{
+    
+    -fx-padding: 15 30 15 40;
+    -fx-background-image:url("galaxy.jpg");
+    -fx-font-family: "Showcard Gothic";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-color:white;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+
+#time
+{
+	-fx-text-fill: white;
+    -fx-font-color:white;
+}
+
+#lab, #lab2
+{
+	-fx-font-color:white;
+	-fx-font-family: "Showcard Gothic";
+	-fx-font-weight: bold;
+    -fx-text-fill: white;
+	-fx-font-size: 16px;
+}
+
+
+#b,#b2
+{
+	-fx-background-color: 
+        #090a0c,
+    
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    
+     -fx-min-height: 40px;
+	-fx-min-width: 40px;
+	-fx-max-height: 40px;
+	-fx-max-width: 40px;
+}
+
+
+
+#button
+{
+     -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Showcard Gothic";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 13 40 13 40;
+}
