@@ -596,7 +596,7 @@ public class Main extends Application {
 				// ako je igrac razbio sve asteroide predji na sledeci nivo
 				if (numAsteroids <= 0) {
 
-					bonus = false;
+					bonus=false;
 					zvezdaPlayer.stop();
 
 					// mora da se ocisti sve jer ne znamo da li je zvezda
@@ -658,18 +658,24 @@ public class Main extends Application {
 						bonus = true;
 
 					}
-
+					
 					setUpNextLevel();
 
 					Label label = new Label();
-
 					if (ind == 2)
 						label.setText("Bonus level");
 
 					else
 						label.setText("Level " + level);
 
-					ind = 0;
+					
+					if(level==1 || level==5) ind=-1;
+					else
+					{
+						ind=0;
+						bonus=false;
+					}
+					
 					paused = false;
 
 					// postavlja lab na sredini i nakon 2 sekunde brise tekst
@@ -699,6 +705,12 @@ public class Main extends Application {
 
 						double x = 10, y = 20;
 
+						if(pobeda==true)
+						{
+							pobeda=false;
+							brZivota++;
+						}
+						
 						String s = "zivot" + brZivota + ".png";
 						Image zivot = new Image(Main.class.getResourceAsStream(s));
 
@@ -738,7 +750,9 @@ public class Main extends Application {
 
 					score.setText("Score " + rezultat);
 
-					if (rezultat >= level * 1000 && ind == 0 && bonus == false) {
+					if(level==3) bonus=false;
+					
+					if (rezultat > level*2000 && ind == 0 && bonus == false) {
 						s = new Star(width, height, pane);
 
 						ind = 1;
@@ -946,10 +960,40 @@ public class Main extends Application {
 
 		// System.out.println("usao sam");
 		level++;
+		
+		
 		// podesavamo za ufo, crtamo ih i postavljamo timer
-		if (level == 1) 
+		if (level == 5) 
 		{
 			for (int i = 0; i < 5; i++) 
+			{
+				Ufo[i] = new Ufo(pane, width, height);	
+			}
+
+			
+			timerLabel.textProperty().bind(timeSeconds.asString());
+			timerLabel.setId("l");
+			timerLabel.setFont(Font.font("Showcard Gothic", FontWeight.BOLD, 3));
+
+			timeSeconds.set(31);
+			timeline = new Timeline();
+			timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(30+ 1), new KeyValue(timeSeconds, 0)));
+
+			// timer
+						FadeTransition fader = createFader3(timerLabel);
+						fader.play();
+			timeline.playFromStart();
+
+			timerLabel.setLayoutX(780); /* pozicija labele u odnosu na x osu */
+			timerLabel.setLayoutY(30);/* pozicija labele u odnosu na y osu */
+
+			pane.getChildren().add(timerLabel);
+			Check();
+
+		}
+		else if (level == 4) 
+		{
+			for (int i = 0; i < 2; i++) 
 			{
 				Ufo[i] = new Ufo(pane, width, height);	
 			}
@@ -986,9 +1030,13 @@ public class Main extends Application {
 		// one is deleted). The level number is equal to the
 		// number of asteroids at it's start.
 
-		asteroids = new Asteroid[(level + 3) * (int) Math.pow(astNumSplit, astNumHits - 1) + 1 + 30];
-		numAsteroids = level + 3;
+		asteroids = new Asteroid[(level + 20) * (int) Math.pow(astNumSplit, astNumHits - 1) + 30];
+		numAsteroids = level+3;
 
+		
+		if(level==1) numAsteroids -=1;
+		if(level==3) numAsteroids += 2;
+		
 		// kreiramo asteroide sa nasumicnim rasporedom na ekranu
 		for (int i = 0; i < numAsteroids; i++) {
 			w = Math.random() * width;
@@ -1004,6 +1052,9 @@ public class Main extends Application {
 		}
 	}
 
+
+	
+	
 	// brisem asteroid iz niza
 	private void deleteAsteroid(int index) {
 
@@ -1072,10 +1123,10 @@ public class Main extends Application {
 					// obrisi originalan(stari) asteroid
 					deleteAsteroid(i);
 					j = numShots; // break out of inner loop - it has
-					// already been hit, so don’t need to check
+					// already been hit, so donÂ’t need to check
 					// for collision with other shots
 
-					i--; // don’t skip asteroid shifted back into
+					i--; // donÂ’t skip asteroid shifted back into
 					// the deleted asteroid's position
 				}
 			}
@@ -1110,6 +1161,16 @@ public class Main extends Application {
 		fade.setToValue(0);
 		return fade;
 	}
+	
+
+	// funkcija za vracanje iz fading u normalno
+		static FadeTransition createFader3(Node node) {
+			FadeTransition fade = new FadeTransition(Duration.seconds(0.2), node);
+			fade.setFromValue(0);
+			fade.setToValue(1);
+			return fade;
+		}
+
 
 	public static int getLevel() {
 		return level;
