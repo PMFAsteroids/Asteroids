@@ -177,8 +177,8 @@ public class Main extends Application {
 								 * top,centar itd zato je samo pane
 								 */
 
-			Label l2 = new Label(
-					"       Use the left and right arrow keys to rotate your ship.\n             Push the up arrow key to use your thrusters. \n                              Press SPACE to fire.");
+		Label l2 = new Label(
+					"       Use the left and right arrow keys to rotate your ship.\n             Push the up arrow key to use your thrusters. \n                     Press SPACE to fire. Press P to pause.");
 			l2.setFont(Font.font("Century Gothic", FontWeight.BOLD, 25));
 			l2.setId("tekst");
 			l2.setLayoutX(width / 2 - 360); /* pozicija labele u odnosu na x osu */
@@ -266,25 +266,55 @@ public class Main extends Application {
 			/*
 			 * najveci kamen-20, srednji kamen-50, najmanji kamen-100, brod-200
 			 */
-			Label l3 = new Label(
-					"The biggest asteroid - 20 points \n The middle asteroid - 50 points \n The smallest asteroid - 100 points \n The spaceship - 200 points");
+			 Image slika1=new Image(Main.class.getResourceAsStream("rsz_kamen.png"));
+			ImageView imgv1=new ImageView();
+			imgv1.setImage(slika1);
+			imgv1.setLayoutX(width / 2 - 300);
+			imgv1.setLayoutY(width / 2 - 300);
+			imgv1.setFitWidth(70); /* sirina slike */
+			imgv1.setFitHeight(70); /* visina slike */
+			root.getChildren().add(imgv1);
+			Label l3 = new Label(" - 20 points");
 			l3.setFont(Font.font("Century Gothic", FontWeight.BOLD, 30));
 			l3.setId("tekst");
-			l3.setLayoutX(width / 2 - 300); /* pozicija labele u odnosu na x osu */
-			l3.setLayoutY(height/4 - 50);
+			l3.setLayoutX(width / 2 - 220); /* pozicija labele u odnosu na x osu */
+			l3.setLayoutY(height/4 - 290);
 			root.getChildren().add(l3);
-
+			Image slika2=new Image(Main.class.getResourceAsStream("srednji1.png"));
+			ImageView imgv2=new ImageView();
+			imgv2.setImage(slika2);
+			imgv2.setLayoutX(width / 2 - 290);
+			imgv2.setLayoutY(width / 2 - 220);
+			imgv2.setFitWidth(50); /* sirina slike */
+			imgv2.setFitHeight(50); /* visina slike */
+			root.getChildren().add(imgv2);
+			Label l31 = new Label("-50 points");			
+			l31.setFont(Font.font("Century Gothic", FontWeight.BOLD, 30));
+			l31.setId("tekst");
+			l31.setLayoutX(width / 2 - 220); /* pozicija labele u odnosu na x osu */
+			l31.setLayoutY(width / 2 - 220);
+			root.getChildren().add(l31);
+			Image slika3=new Image(Main.class.getResourceAsStream("mali1.png"));
+			ImageView imgv3=new ImageView();
+			imgv3.setImage(slika3);
+			imgv3.setLayoutX(width / 2 - 280);
+			imgv3.setLayoutY(width / 2 - 160);
+			imgv3.setFitWidth(30); /* sirina slike */
+			imgv3.setFitHeight(30); /* visina slike */
+			root.getChildren().add(imgv3);
+			Label l32 = new Label("-100 points");			
+			l32.setFont(Font.font("Century Gothic", FontWeight.BOLD, 30));
+			l32.setId("tekst");
+			l32.setLayoutX(width / 2 - 230); /* pozicija labele u odnosu na x osu */
+			l32.setLayoutY(width / 2 - 165);
+			root.getChildren().add(l32);
 			Label l2 = new Label(
 					"You have three lives.\n You lose one life when asteroid hits your ship or when \n other ship hits you. When you hit the star you have the \n opportunity to play a bonus level that if you cross brings \n you one life.");
 			l2.setFont(Font.font("Century Gothic", FontWeight.BOLD, 25));
 			l2.setId("tekst");
 			l2.setLayoutX(width / 2 - 300); /* pozicija labele u odnosu na x osu */
 			l2.setLayoutY(height/4 + 120);
-			root.getChildren()
-					.add(l2); /*
-								 * nije borderPane jer onda mora da se naglasi
-								 * top,centar itd zato je samo pane
-								 */
+			root.getChildren().add(l2); /* nije borderPane jer onda mora da se naglasi top,centar itd zato je samo pane*/
 
 			/* dugme za start */
 
@@ -361,14 +391,6 @@ public class Main extends Application {
 			l6.setLayoutX(width / 2 + 150); /* pozicija labele u odnosu na x osu */
 			l6.setLayoutY(height/2 + 110);
 			root.getChildren().add(l6);
-
-			Label l7 = new Label("P - pause");
-			l7.setFont(Font.font("Century Gothic", FontWeight.BOLD, 25));
-			l7.setId("tekst");
-			l7.setLayoutX(width / 2 + 300); /* pozicija labele u odnosu na x osu */
-			l7.setLayoutY(height/2 + 110);
-			root.getChildren().add(l7);
-
 			
 			primaryStage.show();
 		} catch (Exception e) {
